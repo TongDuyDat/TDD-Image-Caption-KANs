@@ -3,63 +3,59 @@ albumentations==1.4.3
 aliyun-python-sdk-core==2.15.0
 aliyun-python-sdk-kms==2.16.2
 antlr4-python3-runtime==4.9.3
-asttokens @ file:///home/conda/feedstock_root/build_artifacts/asttokens_1698341106958/work
-Brotli @ file:///C:/Windows/Temp/abs_63l7912z0e/croots/recipe/brotli-split_1659616056886/work
-certifi @ file:///home/conda/feedstock_root/build_artifacts/certifi_1707022139797/work/certifi
+asttokens
+Brotli
+certifi 
 cffi==1.16.0
-charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+charset-normalizer
 click==8.1.7
 cloudpickle==3.0.0
-colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1666700638685/work
-comm @ file:///home/conda/feedstock_root/build_artifacts/comm_1710320294760/work
+colorama 
+comm
 contourpy==1.2.1
 crcmod==1.7
 cryptography==42.0.5
 cycler==0.12.1
-debugpy @ file:///D:/bld/debugpy_1707444604970/work
-decorator @ file:///home/conda/feedstock_root/build_artifacts/decorator_1641555617451/work
-exceptiongroup @ file:///home/conda/feedstock_root/build_artifacts/exceptiongroup_1704921103267/work
-executing @ file:///home/conda/feedstock_root/build_artifacts/executing_1698579936712/work
-filelock @ file:///C:/b/abs_f2gie28u58/croot/filelock_1700591233643/work
+debugpy 
+decorator 
+exceptiongroup 
+executing 
+filelock 
 fonttools==4.50.0
 fsspec==2024.3.1
 fvcore==0.1.5.post20221221
-gmpy2 @ file:///C:/ci/gmpy2_1645455782955/work
+gmpy2
 h5py==3.10.0
 huggingface-hub==0.22.2
-idna @ file:///C:/b/abs_bdhbebrioa/croot/idna_1666125572046/work
+idna
 imageio==2.34.0
-importlib_metadata @ file:///home/conda/feedstock_root/build_artifacts/importlib-metadata_1710971335535/work
+importlib_metadata
 importlib_resources==6.4.0
 iopath==0.1.10
-ipykernel @ file:///D:/bld/ipykernel_1708996677248/work
-ipython @ file:///D:/bld/ipython_1701831845989/work
-jedi @ file:///home/conda/feedstock_root/build_artifacts/jedi_1696326070614/work
-Jinja2 @ file:///C:/b/abs_f7x5a8op2h/croot/jinja2_1706733672594/work
+ipykernel
+ipython
+jedi 
+Jinja2 
 jmespath==0.10.0
 joblib==1.4.0
-jupyter_client @ file:///home/conda/feedstock_root/build_artifacts/jupyter_client_1710255804825/work
-jupyter_core @ file:///D:/bld/jupyter_core_1710257377578/work
+jupyter_client 
+jupyter_core 
 kiwisolver==1.4.5
 lazy_loader==0.3
 Markdown==3.6
 markdown-it-py==3.0.0
-MarkupSafe @ file:///C:/b/abs_ecfdqh67b_/croot/markupsafe_1704206030535/work
+MarkupSafe 
 matplotlib==3.8.4
-matplotlib-inline @ file:///home/conda/feedstock_root/build_artifacts/matplotlib-inline_1713250518406/work
+matplotlib-inline 
 mdurl==0.1.2
-mkl-fft @ file:///C:/b/abs_19i1y8ykas/croot/mkl_fft_1695058226480/work
-mkl-random @ file:///C:/b/abs_edwkj1_o69/croot/mkl_random_1695059866750/work
+mkl-fft 
+mkl-random 
 mkl-service==2.4.0
-mmcv==2.1.0
-mmdet==3.3.0
-mmengine==0.10.3
--e git+https://github.com/open-mmlab/mmyolo.git@8c4d9dc503dc8e327bec8147e8dc97124052f693#egg=mmyolo
 model-index==0.1.11
-mpmath @ file:///C:/b/abs_7833jrbiox/croot/mpmath_1690848321154/work
-nest_asyncio @ file:///home/conda/feedstock_root/build_artifacts/nest-asyncio_1705850609492/work
-networkx @ file:///C:/b/abs_e6gi1go5op/croot/networkx_1690562046966/work
-numpy @ file:///C:/b/abs_c1ywpu18ar/croot/numpy_and_numpy_base_1708638681471/work/dist/numpy-1.26.4-cp39-cp39-win_amd64.whl#sha256=f284633067fde4bb078a09085a1c9e99a3218c129f5312b7b3d76c9340442a25
+mpmath 
+nest_asyncio 
+networkx 
+numpy 
 omegaconf==2.3.0
 opencv-python==4.9.0.80
 opendatalab==0.0.10
@@ -67,29 +63,28 @@ openmim==0.3.9
 openxlab==0.0.37
 ordered-set==4.1.0
 oss2==2.17.0
-packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1710075952259/work
+packaging 
 pandas==2.2.1
-parso @ file:///home/conda/feedstock_root/build_artifacts/parso_1712320355065/work
-pickleshare @ file:///home/conda/feedstock_root/build_artifacts/pickleshare_1602536217715/work
-pillow @ file:///C:/b/abs_e22m71t0cb/croot/pillow_1707233126420/work
-platformdirs @ file:///home/conda/feedstock_root/build_artifacts/platformdirs_1706713388748/work
+parso
+pickleshare 
+pillow 
 portalocker==2.8.2
 prettytable==3.10.0
-prompt-toolkit @ file:///home/conda/feedstock_root/build_artifacts/prompt-toolkit_1702399386289/work
-psutil @ file:///D:/bld/psutil_1705722541723/work
-pure-eval @ file:///home/conda/feedstock_root/build_artifacts/pure_eval_1642875951954/work
+prompt-toolkit
+psutil 
+pure-eval 
 pycocoevalcap==1.2
 pycocotools==2.0.7
 pycparser==2.22
 pycryptodome==3.20.0
-Pygments @ file:///home/conda/feedstock_root/build_artifacts/pygments_1700607939962/work
+Pygments 
 pyparsing==3.1.2
-PySocks @ file:///C:/ci/pysocks_1605307512533/work
-python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1709299778482/work
+PySocks 
+python-dateutil
 pytz==2023.4
 pywin32==306
-PyYAML @ file:///C:/b/abs_782o3mbw7z/croot/pyyaml_1698096085010/work
-pyzmq @ file:///D:/bld/pyzmq_1713635697355/work
+PyYAML 
+pyzmq 
 regex==2023.12.25
 requests==2.28.2
 rich==13.4.2
@@ -98,9 +93,9 @@ scikit-image==0.22.0
 scikit-learn==1.4.2
 scipy==1.13.0
 shapely==2.0.4
-six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
-stack-data @ file:///home/conda/feedstock_root/build_artifacts/stack_data_1669632077133/work
-sympy @ file:///C:/b/abs_82njkonm7f/croot/sympy_1701397685028/work
+six 
+stack-data 
+sympy 
 tabulate==0.9.0
 termcolor==2.4.0
 terminaltables==3.1.10
@@ -112,15 +107,14 @@ tomli==2.0.1
 torch==2.1.2
 torchaudio==2.1.2
 torchvision==0.16.2
-tornado @ file:///D:/bld/tornado_1708363257374/work
+tornado 
 tqdm==4.65.2
-traitlets @ file:///home/conda/feedstock_root/build_artifacts/traitlets_1713535121073/work
+traitlets 
 transformers==4.39.3
-typing_extensions @ file:///C:/b/abs_72cdotwc_6/croot/typing_extensions_1705599364138/work
+typing_extensions 
 tzdata==2024.1
 urllib3==1.26.18
-wcwidth @ file:///home/conda/feedstock_root/build_artifacts/wcwidth_1704731205417/work
-win-inet-pton @ file:///C:/ci/win_inet_pton_1605306162074/work
-yacs==0.1.8
+wcwidth
+win-inet-pton
 yapf==0.40.2
-zipp @ file:///home/conda/feedstock_root/build_artifacts/zipp_1695255097490/work
+zipp
