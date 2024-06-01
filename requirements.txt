@@ -103,9 +103,6 @@ tifffile
 timm
 tokenizers==0.15.2
 tomli==2.0.1
-torch==2.1.2
-torchaudio==2.1.2
-torchvision==0.16.2
 tornado 
 tqdm
 traitlets 
