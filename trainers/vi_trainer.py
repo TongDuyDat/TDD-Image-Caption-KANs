@@ -177,7 +177,6 @@ class viTrainer(BaseTrainer):
                 self.train_scst()
 
             val_loss = self.evaluate_loss(self.val_dataloader)
-            val_loss = 0
             # val scores
             scores = self.evaluate_metrics(self.val_dict_dataloader)
             logger.info("Validation scores %s", scores)
