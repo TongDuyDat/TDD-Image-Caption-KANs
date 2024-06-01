@@ -1,0 +1,16 @@
+__pycache__
+features*
+examine*.*
+
+meteor-1.5.jar
+
+saved_models
+
+vocab.json
+
+visualize.py
+
+features
+
+saved_models*
+saved_models*
