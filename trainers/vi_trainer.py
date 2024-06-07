@@ -33,7 +33,7 @@ class viTrainer(BaseTrainer):
         self.evaluating_beam_size = config.TRAINING.EVALUATING_BEAM_SIZE
         self.patience = config.TRAINING.PATIENCE
         self.train_cider = Cider({f"{idx}": caption for idx, caption in enumerate(self.train_dataset.captions)})
-
+    
     def load_vocab(self, config):
         vocab = Vocab(config.DATASET)
 

@@ -4,9 +4,13 @@ from torch.nn import NLLLoss
 from torch.optim import Adam
 from torch.optim.lr_scheduler import LambdaLR
 
+from torch.nn.parallel import DistributedDataParallel as DDP
+from torch.utils.data import DistributedSampler, RandomSampler
+
 from data_utils.utils import collate_fn
 from utils.logging_utils import setup_logger
 from builders.model_builder import build_model
+from torch import distributed as dist
 
 import os
 import numpy as np
@@ -43,7 +47,14 @@ class BaseTrainer:
             self.vocab = pickle.load(
                 open(os.path.join(self.checkpoint_path, "vocab.bin"), "rb")
             )
-
+        
+        logger.info("Building model")
+        self.model = build_model(config.MODEL, self.vocab)
+        self.config = config
+        self.device = torch.device(config.MODEL.DEVICE)
+        
+        self.ddp = config.TRAINING.DDP
+    
         logger.info("Loading data")
         self.train_dataset, self.dev_dataset, self.test_dataset = (
             self.load_feature_datasets(config.DATASET)
@@ -51,7 +62,15 @@ class BaseTrainer:
         self.train_dict_dataset, self.dev_dict_dataset, self.test_dict_dataset = (
             self.load_dict_datasets(config.DATASET)
         )
-
+        gpus = self.setup_ddp()
+        if self.ddp:
+            self.model = DDP(self.model, device_ids=[gpus])
+            self.train_dataset = DistributedSampler(self.train_dataset)
+            self.dev_dataset = DistributedSampler(self.dev_dataset)
+        else:
+            self.train_dataset = RandomSampler(self.train_dataset)
+            self.dev_dataset = RandomSampler(self.dev_dataset)
+        
         # creating iterable-dataset data loader
         self.train_dataloader = DataLoader(
             dataset=self.train_dataset,
@@ -96,11 +115,6 @@ class BaseTrainer:
             shuffle=True,
             collate_fn=collate_fn,
         )
-
-        logger.info("Building model")
-        self.model = build_model(config.MODEL, self.vocab)
-        self.config = config
-        self.device = torch.device(config.MODEL.DEVICE)
 
         logger.info("Defining optimizer and objective function")
         self.configuring_hyperparameters(config)
@@ -158,13 +172,14 @@ class BaseTrainer:
         return checkpoint
 
     def save_checkpoint(self, dict_for_updating: dict) -> None:
+        model_to_save = self.model.module if hasattr(self.model, 'module') else self.model
         dict_for_saving = {
             "torch_rng_state": torch.get_rng_state(),
             "cuda_rng_state": torch.cuda.get_rng_state(),
             "numpy_rng_state": np.random.get_state(),
             "random_rng_state": random.getstate(),
             "epoch": self.epoch,
-            "state_dict": self.model.state_dict(),
+            "state_dict": model_to_save.state_dict(),
             "optimizer": self.optim.state_dict(),
             "scheduler": self.scheduler.state_dict(),
         }
@@ -181,3 +196,15 @@ class BaseTrainer:
 
     def get_predictions(self, dataset, get_scores=True):
         raise NotImplementedError
+
+    def setup_ddp(self) -> int:
+        if 'RANK' in os.environ and 'WORLD_SIZE' in os.environ:
+            rank = int(os.environ['RANK'])
+            world_size = int(os.environ['WORLD_SIZE'])
+            gpu = int(os.environ(['LOCAL_RANK']))
+            torch.cuda.set_device(gpu)
+            dist.init_process_group('nccl', init_method="env://",world_size=world_size, rank=rank)
+            dist.barrier()
+        else:
+            gpu = 0
+        return gpu
